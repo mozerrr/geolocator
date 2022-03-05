@@ -367,6 +367,6 @@ class Geolocator {
 
   /// Отключение запроса геолокации. Нужен для отключения потока геоданных при
   /// уходе в фон android 6-9.
-  Future<void> stopPositionUpdates() =>
+  static Future<void> stopPositionUpdates() =>
       GeolocatorPlatform.instance.stopPositionUpdates();
 }
