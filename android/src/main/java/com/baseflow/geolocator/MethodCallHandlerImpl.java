@@ -38,6 +38,8 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
 
   @Nullable private Activity activity;
 
+  @Nullable private LocationClient locationClient;
+
   MethodCallHandlerImpl(
       PermissionManager permissionManager, GeolocationManager geolocationManager) {
     this.permissionManager = permissionManager;
@@ -166,7 +168,7 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     LocationOptions locationOptions = LocationOptions.parseArguments(map);
     final boolean[] replySubmitted = {false};
 
-    LocationClient locationClient =
+    locationClient =
         geolocationManager.createLocationClient(
             this.context, forceLocationManager != null && forceLocationManager, locationOptions);
 
